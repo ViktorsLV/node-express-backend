@@ -1,5 +1,6 @@
 const router = require("express").Router();
-bookController = require("../controllers/bookController");
+
+const bookController = require("../controllers/bookController");
 
 router.get("/", bookController.getAllBooks);
 

@@ -1,4 +1,4 @@
-const { Book, validate } = require("../model/bookModel");
+const { Book, validate } = require("../models/bookModel");
 
 getAllBooks = async (req, res, next) => {
   try {
@@ -11,19 +11,22 @@ getAllBooks = async (req, res, next) => {
 };
 
 postNewBook = async (req, res, next) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = validate(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
 
-  const newBook = new Book(req.body);
+  const { title, author, year } = req.body
+  const newBook = new Book({
+    title, author, year
+  });
   
   try {
     const book = await newBook.save();
 
     if (!book) throw new Error("Something went wrong, try again");
-    res.status(200).json(book);
+    res.status(200).send(book);
   } catch (err) {
     res.status(500).json({
-      message: error.message,
+      message: error?.message,
     });
   }
 };

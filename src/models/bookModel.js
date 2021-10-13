@@ -1,11 +1,25 @@
 const Joi = require("joi");
 const { Schema, model } = require("mongoose");
 
-let bookSchema = new Schema({
-  title: String,
-  author: String,
-  year: String,
-});
+let bookSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    author: {
+      type: String,
+      required: true,
+    },
+    year: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Book = model("Book", bookSchema);
 

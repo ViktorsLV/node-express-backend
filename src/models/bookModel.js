@@ -25,8 +25,8 @@ const Book = model("Book", bookSchema);
 
 function validateBook(book) {
   const schema = Joi.object({
-    title: Joi.string().max(50).required(),
-    author: Joi.string().max(255).required(),
+    title: Joi.string().max(200).required(),
+    author: Joi.string().max(100).required(),
     year: Joi.string().max(4).required(),
   });
 

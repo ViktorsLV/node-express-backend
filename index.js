@@ -19,12 +19,12 @@ app.use(morgan('dev', {
 
 // Middlewares
 app.use(errorHandler)
-app.use(notFound)
+// app.use(notFound)
 
 // Book routes 
 app.use('/api/books', bookRouter)
 app.get('/', (req, res) => {
-  res.send('Hello')
+  res.send('Hello, this is my API')
 })
 
 const port = process.env.PORT || 5000;

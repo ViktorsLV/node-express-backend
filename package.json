@@ -4,10 +4,13 @@
   "description": "book database for school project",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.10",
     "morgan": "^1.10.0"
   },

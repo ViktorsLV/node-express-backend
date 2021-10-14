@@ -12,6 +12,18 @@ getAllBooks = async (req, res, next) => {
   }
 };
 
+// @route   GET /api/books/count
+// @access  Public 
+getBooksCount = async (req, res, next) => {
+  try {
+    const bookCount = await Book.countDocuments({});
+    res.status(200).json({count: bookCount});
+  } catch (err) {
+    next(err);
+    console.log(err);
+  }
+};
+
 // @route   GET /api/books/:id
 // @access  Public 
 getOneBook = async (req, res, next) => {
@@ -81,6 +93,7 @@ updateBook = async (req, res, next) => {
 
 module.exports = {
   getAllBooks,
+  getBooksCount,
   getOneBook,
   postNewBook,
   deleteBook,

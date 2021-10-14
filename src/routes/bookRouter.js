@@ -4,6 +4,8 @@ const bookController = require("../controllers/bookController");
 
 router.get("/", bookController.getAllBooks);
 
+router.get("/count", bookController.getBooksCount);
+
 router.get("/:id", bookController.getOneBook);
 
 router.post("/", bookController.postNewBook);

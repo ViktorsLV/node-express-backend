@@ -15,6 +15,11 @@ let bookSchema = new Schema(
       type: String,
       required: true,
     },
+    genre: {
+      type: Array,
+      required: false,
+      default: 'not specified'
+    }
   },
   {
     timestamps: true,

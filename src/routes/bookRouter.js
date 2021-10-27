@@ -7,6 +7,8 @@ router.get("/", bookController.getAllBooks);
 
 router.get("/count", bookController.getBooksCount);
 
+router.get("/stats", bookController.getBookStats);
+
 router.get("/:id", bookController.getOneBook);
 
 router.post("/", bookController.postNewBook);

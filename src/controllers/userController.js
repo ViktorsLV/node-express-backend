@@ -3,8 +3,9 @@ const { User, validate } = require("../models/userModel");
 // @route   GET /api/users
 // @access  Public 
 getAllUsers = async (req, res) => {
+  const query = req.query.new // creating optional query
   try {
-    const allUsers = await User.find({});
+    const allUsers = query ? await User.find().sort({_id: -1}).limit(3) : await User.find({}); // if there is a query ('api/users?new=true') then return last 3 users sorted, else all users
     res.status(200).json(allUsers);
   } catch (err) {
     res.status(404).json(err)
